@@ -48,6 +48,18 @@ Wyniki baseline'u na klasach (mAP50): Happy 0,83, Surprised 0,81, Disgusted 0,80
 Neutral 0,62, Angry 0,42, Fearful 0,42, Sad 0,40. Macierze pomyłek:
 `results/baseline/confusion_matrix_test.png`, `results/clahe/confusion_matrix_test.png`.
 
+Dodatkowo sprawdziłem, co się stanie, gdy preprocessing nie pasuje do treningu
+(mAP50 na zbiorze testowym):
+
+| model \ zdjęcia testowe | oryginalne | po CLAHE |
+|-------------------------|-----------|----------|
+| baseline                | 0,615     | 0,578    |
+| clahe                   | 0,538     | 0,600    |
+
+Każdy model działa najlepiej na takich danych, na jakich się uczył, a rozjazd kosztuje
+ok. 4-6 p.p. Stosowanie CLAHE tylko przy predykcji (na modelu baseline) nie poprawia
+wyniku, tylko go pogarsza. Jeden przebieg na każdy model, więc to wynik, a nie reguła.
+
 Test na identyczne pliki w train i test: 0 wspólnych zdjęć (sprawdzone tylko
 dokładne duplikaty, nie podobne zdjęcia).
 
