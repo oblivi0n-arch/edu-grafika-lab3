@@ -1,6 +1,6 @@
 from ultralytics import YOLO
 
-EPOCHS = 10
+EPOCHS = 50
 IMGSZ = 96
 
 RUNS = [
@@ -17,5 +17,6 @@ for name, data in RUNS:
         batch=16,
         device="cpu",
         seed=42,
+        patience=15,
         name=name,
     )
